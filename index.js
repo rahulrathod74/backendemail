@@ -10,15 +10,18 @@ const app = express();
 connectDB();
 
 // CORS Options
-const corsOptions = {
+const corsOptions = [{
+
   origin: 'https://bulksendemail.netlify.app', // Allow only your frontend origin
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
   credentials: true, // Allow cookies if needed
-};
+},
+
+];
 
 // Middleware
-app.use(cors(corsOptions)); // Enable CORS with options
+app.use(cors()); // Enable CORS with options
 app.use(express.json());
 
 // Routes
